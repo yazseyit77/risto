@@ -10,6 +10,7 @@ class RestaurantsController < ApplicationController
 
   # GET /restaurants/1
   def show
+    @restaurant = Restaurant.search(name)
     render json: @restaurant
   end
 
