@@ -7,8 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-require 'faker'
-require 'populator'
+# require 'faker'
+# require 'populator'
 
 
 # Restaurant.populate(10) do |u|
@@ -33,3 +33,23 @@ require 'populator'
     # set other values #
     restaurant.save!
 end
+
+# 100.times do
+
+    # restaurant = Restaurant.new
+    #     begin
+    #         name = Faker::Restaurant.name
+    #         address = Faker::Address.full_address
+    #         hours = Faker::Time.between(from: Time.now - 1, to: Time.now, format: :short)
+    #         website = 'http://www.' + Faker::Internet.domain_name
+    #         images = Rails.root.join("app/assets/images/RF_web_about_us_1.jpg").open
+    #     end while Restaurant.where(name: name).exists?
+    #     restaurant.name = name
+    #     restaurant.address = address
+    #     restaurant.hours = hours
+    #     restaurant.website = website
+    #     restaurant.images = images
+    #     # set other values #
+    #     restaurant.save!
+
+# end
