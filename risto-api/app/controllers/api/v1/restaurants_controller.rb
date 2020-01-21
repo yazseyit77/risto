@@ -3,10 +3,8 @@ class Api::V1::RestaurantsController < ApplicationController
 
   # GET /restaurants
   def index
-
-
     @restaurants = Restaurant.all
-    render json: @restaurants
+    render json: @restaurants.to_json(:except => [:created_at, :updated_at]), status: 200
   end
 
   def search
