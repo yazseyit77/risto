@@ -3,13 +3,27 @@ class Api::V1::RestaurantsController < ApplicationController
 
   # GET /restaurants
   def index
-    @restaurants = Restaurant.all
 
+
+    @restaurants = Restaurant.all
     render json: @restaurants
   end
 
   def search
-    @restaurants = Restaurant.where("name LIKE ?", "%" + params[:q] + "%")
+      q = params[:q]
+  
+      if q.blank?
+        render status: 400, json: { error: 'Expected parameter `q` '}
+      else
+        render(
+          status: 200,
+          json: Restaurant.where(["name LIKE ?", "%#{q}%"]).limit(100)
+        )
+      end
+
+      
+
+    # @restaurants = Restaurant.where("name LIKE ?", "%" + params[:q] + "%")
   end
 
   # GET /restaurants/1
