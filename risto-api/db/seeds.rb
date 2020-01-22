@@ -18,21 +18,21 @@
 #     u.images             = Faker::Avatar.image(slug: "my-own-slug", size: "100x100", format: "png")
 # end
 
-20.times do
-    restaurant = Restaurant.new
-    begin
-        name = Faker::Restaurant.name
-        address = Faker::Address.full_address
-        hours = Faker::Time.between(from: Time.now - 1, to: Time.now, format: :short)
-        images = Faker::Avatar.image(slug: "my-own-slug", size: "100x100", format: "png")
-    end while Restaurant.where(name: name).exists?
-    restaurant.name = name
-    restaurant.address = address
-    restaurant.hours = hours
-    restaurant.images = images
-    # set other values #
-    restaurant.save!
-end
+# 20.times do
+#     restaurant = Restaurant.new
+#     begin
+#         name = Faker::Restaurant.name
+#         address = Faker::Address.full_address
+#         hours = Faker::Time.between(from: Time.now - 1, to: Time.now, format: :short)
+#         images = Faker::Avatar.image(slug: "my-own-slug", size: "100x100", format: "png")
+#     end while Restaurant.where(name: name).exists?
+#     restaurant.name = name
+#     restaurant.address = address
+#     restaurant.hours = hours
+#     restaurant.images = images
+#     # set other values #
+#     restaurant.save!
+# end
 
 # 100.times do
 
