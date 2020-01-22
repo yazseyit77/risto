@@ -1,12 +1,16 @@
 import React, { Component } from "react";
 
-class Restaurants extends Component {
+class RestaurantSearch extends Component {
   state = {
     name: ""
   };
 
   handleOnsubmit = e => {
     e.preventDefault();
+    this.props.fetchRestaurants(this.state.name);
+    this.setState({
+      name: ""
+    });
   };
 
   handleOnChange = e => {
@@ -20,11 +24,11 @@ class Restaurants extends Component {
       <div>
         <form onSubmit={this.handleOnsubmit}>
           <input type="text" name="name" onChange={this.handleOnChange} />
-          <input type="submit" />
+          <button>Search</button>
         </form>
       </div>
     );
   }
 }
 
-export default Restaurants;
+export default RestaurantSearch;

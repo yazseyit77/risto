@@ -19,7 +19,7 @@ class Api::V1::RestaurantsController < ApplicationController
       #   )
       # end
 
-    # @restaurants = Restaurant.where("name LIKE ?", "%" + params[:q] + "%")
+    # @restaurant = Restaurant.where("name LIKE ?", "%" + params[:q] + "%")
     @restaurant = Restaurant.fetch(params[:q])
     render json: @restaurant.to_json
   end
