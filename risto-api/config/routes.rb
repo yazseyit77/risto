@@ -11,10 +11,12 @@ Rails.application.routes.draw do
     get '/users/sign_out', to: 'devise/sessions#destroy'
   end
 
+  resources :users, only: [:show]
+
   # resources :restaurants, only: [:index, :show]
   # get 'search', to: 'restaurants#search'
 
-  namespace :api do
+  namespace :api, defaults: {format: 'json'} do
     namespace :v1 do
       resources :restaurants do
         collection do
