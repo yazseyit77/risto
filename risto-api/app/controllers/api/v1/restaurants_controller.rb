@@ -1,4 +1,4 @@
-class Api::V1::RestaurantsController < ApplicationController
+class Api::V1::RestaurantsController < ActionController::Base
   before_action :set_restaurant, only: [:show, :update, :destroy]
 
   # GET /restaurants

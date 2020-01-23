@@ -12,4 +12,3 @@ export const fetchRestaurants = name => {
   };
 };
 
-// export const addRestaurant = () => {};
