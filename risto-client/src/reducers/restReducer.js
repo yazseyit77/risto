@@ -1,3 +1,5 @@
+import { combineReducers } from "redux";
+
 const restReducer = (state = { restaurants: [], loading: false }, action) => {
   switch (action.type) {
     case "LOADING_RESTAURANTS":
@@ -19,4 +21,15 @@ const restReducer = (state = { restaurants: [], loading: false }, action) => {
   }
 };
 
-export default restReducer;
+const userReducer = (state = { users: [] }, action) => {
+  switch (action.type) {
+    case "SET_USER":
+      return { ...action.payload };
+    case "REMOVE_USER":
+      return {};
+    default:
+      return state;
+  }
+};
+
+export default combineReducers(userReducer)(restReducer);
