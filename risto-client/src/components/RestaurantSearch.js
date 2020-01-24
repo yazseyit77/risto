@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Input, Grid, Header, Icon } from "semantic-ui-react";
 
 class RestaurantSearch extends Component {
   state = {
@@ -21,12 +22,28 @@ class RestaurantSearch extends Component {
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.handleOnsubmit}>
-          <input type="text" name="name" onChange={this.handleOnChange} />
-          <button>Search</button>
-        </form>
-      </div>
+      <Grid stackable textAlign="center">
+        <Grid.Row verticalAlign="middle">
+          <Grid.Column>
+            <Header icon>
+              <Icon name="search" />
+              <h1>Search for Restaurants:</h1>
+            </Header>
+            <form onSubmit={this.handleOnsubmit}>
+              {/* <Input action={{ color: 'teal', icon: 'search' }} placeholder='Search...' name="name" onChange={this.handleOnChange} /> */}
+              <Input
+                action={{ color: "blue", content: "Search", size: "big" }}
+                size="huge"
+                icon="search"
+                iconPosition="left"
+                placeholder="Search..."
+                name="name"
+                onChange={this.handleOnChange}
+              />
+            </form>
+          </Grid.Column>
+        </Grid.Row>
+      </Grid>
     );
   }
 }

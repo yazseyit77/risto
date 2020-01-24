@@ -13,7 +13,6 @@ class RestaurantsContainer extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Restaurants</h1>
         <RestaurantSearch fetchRestaurants={this.props.fetchRestaurants} />
         <Restaurants restaurants={this.props.restaurants} />
       </div>
