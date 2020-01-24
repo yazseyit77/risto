@@ -12,37 +12,44 @@ export default class NavBar extends Component {
     return (
       <Segment inverted>
         <Menu inverted secondary>
+          <a href="/">
+            <Menu.Item
+              name="home"
+              active={activeItem === "home"}
+              onClick={this.handleItemClick}
+            />
+          </a>
           <Menu.Item
-            name="home"
-            active={activeItem === "home"}
-            onClick={this.handleItemClick}
-          />
-          <Menu.Item
-            name="messages"
-            active={activeItem === "messages"}
-            onClick={this.handleItemClick}
-          />
-          <Menu.Item
-            name="friends"
+            name="Favorites"
             active={activeItem === "friends"}
             onClick={this.handleItemClick}
           />
           <Menu.Menu position="right">
-            <Menu.Item
-              name="Sign up"
-              active={activeItem === "logout"}
-              onClick={this.handleItemClick}
-            ></Menu.Item>
-            <Menu.Item
-              name="Login"
-              active={activeItem === "logout"}
-              onClick={this.handleItemClick}
-            />
-            <Menu.Item
-              name="Logout"
-              active={activeItem === "logout"}
-              onClick={this.handleItemClick}
-            />
+            {this.props.loggedInStatus ? null : (
+              <a href="/signup">
+                <Menu.Item
+                  name="Sign up"
+                  active={activeItem === "logout"}
+                  onClick={this.handleItemClick}
+                />
+              </a>
+            )}
+            {this.props.loggedInStatus ? null : (
+              <a href="/login">
+                <Menu.Item
+                  name="Login"
+                  active={activeItem === "logout"}
+                  onClick={this.handleItemClick}
+                />
+              </a>
+            )}
+            <a href="/logout">
+              <Menu.Item
+                name="Logout"
+                active={activeItem === "logout"}
+                onClick={this.handleItemClick}
+              />
+            </a>
           </Menu.Menu>
         </Menu>
       </Segment>

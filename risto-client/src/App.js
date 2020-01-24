@@ -6,7 +6,7 @@ import Login from "./components/registrations/Login";
 import SignUp from "./components/registrations/SignUp";
 
 import NavBar from "./components/NavBar";
-import { Container } from 'semantic-ui-react'
+import { Container } from "semantic-ui-react";
 
 class App extends Component {
   constructor(props) {
@@ -50,9 +50,9 @@ class App extends Component {
 
   render() {
     return (
-      <Container >
+      <Container>
         <div className="App">
-          <NavBar />
+          <NavBar loggedInStatus={this.state.isLoggedIn} />
           <Router>
             <Switch>
               <Route exact path="/" component={RestaurantsContainer} />
@@ -69,8 +69,8 @@ class App extends Component {
                   )}
                 />
               ) : (
-                  <Route exact path="/" component={RestaurantsContainer} />
-                )}
+                <Route exact path="/" component={RestaurantsContainer} />
+              )}
               <Route
                 exact
                 path="/login"
