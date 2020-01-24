@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
 
 const Home = props => {
   const handleClick = () => {
@@ -15,14 +14,6 @@ const Home = props => {
         props.history.push("/");
       })
       .catch(error => console.log(error));
-
-    // axios
-    //   .delete("http://localhost:4000/api/v1/logout", { withCredentials: true })
-    //   .then(response => {
-    //     props.handleLogout();
-    //     props.history.pushState("/");
-    //   })
-    //   .catch(error => console.log(error));
   };
 
   return (

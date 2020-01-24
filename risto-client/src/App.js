@@ -5,6 +5,9 @@ import Home from "./components/Home";
 import Login from "./components/registrations/Login";
 import SignUp from "./components/registrations/SignUp";
 
+import NavBar from "./components/NavBar";
+import { Container } from 'semantic-ui-react'
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -47,50 +50,53 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <Router>
-          <Switch>
-            <Route exact path="/" component={RestaurantsContainer} />
-            {this.state.isLoggedIn === true ? (
+      <Container >
+        <div className="App">
+          <NavBar />
+          <Router>
+            <Switch>
+              <Route exact path="/" component={RestaurantsContainer} />
+              {this.state.isLoggedIn === true ? (
+                <Route
+                  exact
+                  path="/home"
+                  render={props => (
+                    <Home
+                      {...props}
+                      handleLogout={this.handleLogout}
+                      loggedInStatus={this.state.isLoggedIn}
+                    />
+                  )}
+                />
+              ) : (
+                  <Route exact path="/" component={RestaurantsContainer} />
+                )}
               <Route
                 exact
-                path="/home"
+                path="/login"
                 render={props => (
-                  <Home
+                  <Login
                     {...props}
-                    handleLogout={this.handleLogout}
+                    handleLogin={this.handleLogin}
                     loggedInStatus={this.state.isLoggedIn}
                   />
                 )}
               />
-            ) : (
-              <Route exact path="/" component={RestaurantsContainer} />
-            )}
-            <Route
-              exact
-              path="/login"
-              render={props => (
-                <Login
-                  {...props}
-                  handleLogin={this.handleLogin}
-                  loggedInStatus={this.state.isLoggedIn}
-                />
-              )}
-            />
-            <Route
-              exact
-              path="/signup"
-              render={props => (
-                <SignUp
-                  {...props}
-                  handleLogin={this.handleLogin}
-                  loggedInStatus={this.state.isLoggedIn}
-                />
-              )}
-            />
-          </Switch>
-        </Router>
-      </div>
+              <Route
+                exact
+                path="/signup"
+                render={props => (
+                  <SignUp
+                    {...props}
+                    handleLogin={this.handleLogin}
+                    loggedInStatus={this.state.isLoggedIn}
+                  />
+                )}
+              />
+            </Switch>
+          </Router>
+        </div>
+      </Container>
     );
   }
 }

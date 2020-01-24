@@ -57,7 +57,6 @@ class SignUp extends Component {
   //   }
 
   redirect = () => {
-    alert("yay!");
     this.props.history.push("/home");
   };
 
