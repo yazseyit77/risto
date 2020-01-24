@@ -29,13 +29,24 @@ class Restaurants extends Component {
               {rest.restaurant.location.address}
             </Item.Description>
             <Item.Extra>
-              <a href={rest.restaurant.menu_url}>Menu</a>
-              <Icon
-                name="heart outline"
-                color="red"
-                size="big"
-                floated="right"
-              />
+              <Button animated>
+                <Button.Content visible>
+                  <a href={rest.restaurant.menu_url}>Menu</a>
+                </Button.Content>
+                <Button.Content hidden>
+                  <a href={rest.restaurant.menu_url}>
+                    <Icon name="arrow right" />
+                  </a>
+                </Button.Content>
+              </Button>
+              <Button as="div" labelPosition="left">
+                <Label basic pointing="right">
+                  Add to favorites:
+                </Label>
+                <Button as="a" icon>
+                  <Icon color="red" name="heart" size="large" />
+                </Button>
+              </Button>
             </Item.Extra>
           </Item.Content>
         </Item>
