@@ -1,6 +1,14 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-// import axios from "axios";
+import {
+  Button,
+  Divider,
+  Form,
+  Grid,
+  Segment,
+  Header,
+  Icon
+} from "semantic-ui-react";
 
 class Login extends Component {
   constructor(props) {
@@ -55,23 +63,6 @@ class Login extends Component {
         }
       })
       .catch(error => console.log("api errors:", error));
-    // axios
-    //   .post(
-    //     "http://localhost:4000/api/v1/login",
-    //     { user },
-    //     { withCredentials: true }
-    //   )
-    //   .then(response => {
-    //     if (response.logged_in) {
-    //       this.props.handleLogin(response);
-    //       this.redirect();
-    //     } else {
-    //       this.setState({
-    //         errors: response.errors
-    //       });
-    //     }
-    //   })
-    //   .catch(error => console.log("api errors:", error));
   };
 
   redirect = () => {
@@ -94,32 +85,44 @@ class Login extends Component {
   render() {
     const { username, password } = this.state;
     return (
-      <div>
-        <h1>Log In</h1>
-        <form onSubmit={this.handleSubmit}>
-          <input
-            placeholder="username"
+      <Segment placeholder>
+        <Header as="h1" icon textAlign="center">
+          <Icon name="user" circular />
+          <Header.Content>Login</Header.Content>
+        </Header>
+        <br />
+        <br />
+        <Form onSubmit={this.handleSubmit}>
+          <Form.Input
+            icon="user"
+            iconPosition="left"
+            label="Username"
+            placeholder="Username"
             type="text"
             name="username"
             value={username}
             onChange={this.handleChange}
           />
-          <input
-            placeholder="password"
+          <Form.Input
+            icon="lock"
+            iconPosition="left"
+            label="Password"
+            placeholder="Password"
             type="password"
             name="password"
             value={password}
             onChange={this.handleChange}
           />
-          <button placeholder="submit" type="submit">
-            Log In
-          </button>
-          <div>
-            or <Link to="/signup">sign up</Link>
-          </div>
-        </form>
+          <Button content="Login" primary />
+        </Form>
+        <br />
+        <br />
+        <Divider horizontal>Or</Divider>
+        <Link to="/signup">
+          <Button content="Sign up" icon="signup" size="big" />
+        </Link>
         <div>{this.state.errors ? this.handleErrors() : null}</div>
-      </div>
+      </Segment>
     );
   }
 }
