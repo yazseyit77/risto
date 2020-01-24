@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Menu, Header } from "semantic-ui-react";
+import { Menu, Segment } from "semantic-ui-react";
 
 export default class NavBar extends Component {
   state = { activeItem: "home" };
@@ -10,8 +10,8 @@ export default class NavBar extends Component {
     const { activeItem } = this.state;
 
     return (
-      <Header>
-        <Menu secondary>
+      <Segment inverted>
+        <Menu inverted secondary>
           <Menu.Item
             name="home"
             active={activeItem === "home"}
@@ -45,7 +45,7 @@ export default class NavBar extends Component {
             />
           </Menu.Menu>
         </Menu>
-      </Header>
+      </Segment>
     );
   }
 }

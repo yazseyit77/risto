@@ -25,6 +25,7 @@ class RestaurantSearch extends Component {
       <Grid stackable textAlign="center">
         <Grid.Row verticalAlign="middle">
           <Grid.Column>
+            <br />
             <Header icon>
               <Icon name="search" />
               <h1>Search for Restaurants:</h1>
