@@ -19,11 +19,6 @@ export default class NavBar extends Component {
               onClick={this.handleItemClick}
             />
           </a>
-          <Menu.Item
-            name="Favorites"
-            active={activeItem === "friends"}
-            onClick={this.handleItemClick}
-          />
           <Menu.Menu position="right">
             {this.props.loggedInStatus ? null : (
               <a href="/signup">

@@ -1,7 +1,8 @@
 import React from "react";
 import Favorites from "./Favorites";
 import { Link } from "react-router-dom";
-import NavBar from "./NavBar";
+import { Button, Icon } from "semantic-ui-react";
+// import NavBar from "./NavBar";
 
 const Home = props => {
   const handleClick = () => {
@@ -20,20 +21,22 @@ const Home = props => {
 
   return (
     <div>
-      <h2>Only will show after Login!!!</h2>
-      <br></br>
-      <Favorites />
-      <br></br>
-      {props.loggedInStatus ? null : <Link to="/login">Log In</Link>}
-      <br></br>
-
-      {props.loggedInStatus ? null : <Link to="/signup">Sign Up</Link>}
-      <br></br>
       {props.loggedInStatus ? (
         <Link to="/logout" onClick={handleClick}>
-          Log Out
+          <Button.Group floated="right">
+            <Button basic color="grey" animated="fade">
+              <Button.Content visible>Logout</Button.Content>
+              <Button.Content hidden>
+                <Icon name="user outline" />
+              </Button.Content>
+            </Button>
+          </Button.Group>
         </Link>
       ) : null}
+      <br></br>
+      <h2>Favorite Restaurants</h2>
+      <br></br>
+      <Favorites />
     </div>
   );
 };

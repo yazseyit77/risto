@@ -4,7 +4,6 @@ import {
   Button,
   Divider,
   Form,
-  Grid,
   Segment,
   Header,
   Icon
@@ -66,7 +65,7 @@ class Login extends Component {
   };
 
   redirect = () => {
-    this.props.history.push("/home");
+    this.props.history.push("/favorites");
     console.log("Successfully Login");
   };
 

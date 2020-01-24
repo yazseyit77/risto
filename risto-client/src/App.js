@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import RestaurantsContainer from "./containers/RestaurantsContainer";
-import Home from "./components/Home";
+import FavHome from "./components/FavHome";
 import Login from "./components/registrations/Login";
 import SignUp from "./components/registrations/SignUp";
 
@@ -59,9 +59,9 @@ class App extends Component {
               {this.state.isLoggedIn === true ? (
                 <Route
                   exact
-                  path="/home"
+                  path="/favorites"
                   render={props => (
-                    <Home
+                    <FavHome
                       {...props}
                       handleLogout={this.handleLogout}
                       loggedInStatus={this.state.isLoggedIn}
