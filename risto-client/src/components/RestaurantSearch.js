@@ -31,7 +31,6 @@ class RestaurantSearch extends Component {
               <h1>Search for Restaurants:</h1>
             </Header>
             <form onSubmit={this.handleOnsubmit}>
-              {/* <Input action={{ color: 'teal', icon: 'search' }} placeholder='Search...' name="name" onChange={this.handleOnChange} /> */}
               <Input
                 action={{ color: "blue", content: "Search", size: "big" }}
                 size="huge"

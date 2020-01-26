@@ -51,8 +51,8 @@ class App extends Component {
   render() {
     return (
       <Container>
-        <div className="App">
-          <NavBar loggedInStatus={this.state.isLoggedIn} />
+        <div className="App" style={{ backgroundColor: "#FBFAF5" }}>
+          < NavBar loggedInStatus={this.state.isLoggedIn} />
           <Router>
             <Switch>
               <Route exact path="/" component={RestaurantsContainer} />
@@ -69,8 +69,8 @@ class App extends Component {
                   )}
                 />
               ) : (
-                <Route exact path="/" component={RestaurantsContainer} />
-              )}
+                  <Route exact path="/" component={RestaurantsContainer} />
+                )}
               <Route
                 exact
                 path="/login"
@@ -96,7 +96,7 @@ class App extends Component {
             </Switch>
           </Router>
         </div>
-      </Container>
+      </Container >
     );
   }
 }
