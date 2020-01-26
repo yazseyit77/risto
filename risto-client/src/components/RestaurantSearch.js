@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Input, Grid, Header, Icon } from "semantic-ui-react";
+// import RestaurantSearchPresent from "./RestaurantSearchPresent";
 
 class RestaurantSearch extends Component {
   state = {
@@ -7,6 +8,7 @@ class RestaurantSearch extends Component {
   };
 
   handleOnsubmit = e => {
+    debugger;
     e.preventDefault();
     this.props.fetchRestaurants(this.state.name);
     this.setState({
@@ -21,6 +23,15 @@ class RestaurantSearch extends Component {
   };
 
   render() {
+    // return (
+    //   <div>
+    //     <RestaurantSearchPresent
+    //       handleOnsubmit={this.handleOnsubmit}
+    //       handleOnChange={e => this.handleOnChange(e)}
+    //       value={this.state.value}
+    //     />
+    //   </div>
+    // );
     return (
       <Grid stackable textAlign="center">
         <Grid.Row verticalAlign="middle">

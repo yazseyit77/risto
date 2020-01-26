@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Menu, Segment } from "semantic-ui-react";
+// import { Menu, Segment } from "semantic-ui-react";
+import NavBarRender from "./stateless/NavBarRender";
 
 export default class NavBar extends Component {
   state = { activeItem: "home" };
@@ -10,46 +11,56 @@ export default class NavBar extends Component {
     const { activeItem } = this.state;
 
     return (
-      <Segment inverted>
-        <Menu inverted secondary>
-          <a href="/home">
-            <Menu.Item
-              name="home"
-              active={activeItem === "home"}
-              onClick={this.handleItemClick}
-            />
-          </a>
-          <Menu.Menu position="right">
-            {this.props.loggedInStatus ? null : (
-              <a href="/signup">
-                <Menu.Item
-                  name="Sign up"
-                  active={activeItem === "logout"}
-                  onClick={this.handleItemClick}
-                />
-              </a>
-            )}
-            {this.props.loggedInStatus ? null : (
-              <a href="/login">
-                <Menu.Item
-                  name="Login"
-                  active={activeItem === "logout"}
-                  onClick={this.handleItemClick}
-                />
-              </a>
-            )}
-            {this.props.loggedInStatus ? (
-              <a href="/home">
-                <Menu.Item
-                  name="Logout"
-                  active={activeItem === "logout"}
-                  onClick={this.props.logout}
-                />
-              </a>
-            ) : null}
-          </Menu.Menu>
-        </Menu>
-      </Segment>
+      <div>
+        <NavBarRender
+          activeItem={this.handleItemClick}
+          active={activeItem}
+          loggedIn={this.props.loggedInStatus}
+        />
+      </div>
     );
+
+    // return (
+    //   <Segment inverted>
+    //     <Menu inverted secondary>
+    //       <a href="/home">
+    //         <Menu.Item
+    //           name="home"
+    //           active={activeItem === "home"}
+    //           onClick={this.handleItemClick}
+    //         />
+    //       </a>
+    //       <Menu.Menu position="right">
+    //         {this.props.loggedInStatus ? null : (
+    //           <a href="/signup">
+    //             <Menu.Item
+    //               name="Sign up"
+    //               active={activeItem === "logout"}
+    //               onClick={this.handleItemClick}
+    //             />
+    //           </a>
+    //         )}
+    //         {this.props.loggedInStatus ? null : (
+    //           <a href="/login">
+    //             <Menu.Item
+    //               name="Login"
+    //               active={activeItem === "logout"}
+    //               onClick={this.handleItemClick}
+    //             />
+    //           </a>
+    //         )}
+    //         {this.props.loggedInStatus ? (
+    //           <a href="/home">
+    //             <Menu.Item
+    //               name="Logout"
+    //               active={activeItem === "logout"}
+    //               onClick={this.props.logout}
+    //             />
+    //           </a>
+    //         ) : null}
+    //       </Menu.Menu>
+    //     </Menu>
+    //   </Segment>
+    // );
   }
 }

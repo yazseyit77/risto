@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchRestaurants } from "../actions/RestaurantsActions";
-import Restaurants from "../components/Restaurants";
+import Restaurants from "../components/stateless/Restaurants";
 import RestaurantSearch from "../components/RestaurantSearch";
 
 class RestaurantsContainer extends Component {
@@ -12,51 +12,41 @@ class RestaurantsContainer extends Component {
 
   handleOnClick = e => {
     e.preventDefault();
-    // debugger;
-    // alert(e.target);
-    // const image =
-    //   e.target.parentElement.parentElement.parentElement.parentElement
-    //     .parentElement.firstElementChild.children[0].src;
-    // const name =
-    //   e.target.parentElement.parentElement.parentElement.parentElement
-    //     .parentElement.lastElementChild.children[1].innerText;
-    // const hours =
-    //   e.target.parentElement.parentElement.parentElement.parentElement
-    //     .parentElement.lastElementChild.children[2].children[1].innerText;
-    // const address =
-    //   e.target.parentElement.parentElement.parentElement.parentElement
-    //     .parentElement.lastElementChild.children[2].children[2].innerText;
-    // const ratings =
-    //   e.target.parentElement.parentElement.parentElement.parentElement
-    //     .parentElement.lastElementChild.children[2].children[0].innerText;
-    // const menu =
-    //   e.target.parentElement.parentElement.parentElement.parentElement
-    //     .parentElement.lastElementChild.children[3].innerHTML;
+    const image = document.querySelector("div.avatar").children[0].src;
+    const name = document.querySelector("div.content").children[1].innerText;
+    const hours = document.querySelector("div.content").children[2].children[1]
+      .innerText;
+    const address = document.querySelector("div.content").children[2]
+      .children[2].innerText;
+    const ratings = document.querySelector("div.content").children[2]
+      .children[0].innerText;
+    const menu = document.querySelector("div.extra").querySelector("a").href;
 
-    //   fetch(
-    //     "http://localhost:4000/api/v1/restaurants",
-    //     {
-    //       method: "POST",
-    //       headers: {
-    //         "Content-Type": "application/json"
-    //       },
-    //       body: JSON.stringify({
-    //         restaurant: {
-    //           name: name,
-    //           hours: hours,
-    //           address: address,
-    //           ratings: ratings,
-    //           menu: menu,
-    //           image: image
-    //         }
-    //       })
-    //     },
-    //     { withCredentials: true }
-    //   ) //fetch database
-    //     .then(res => res.json())
-    //     .then(data => {
-    //       debugger;
-    //     });
+    fetch(
+      "http://localhost:4000/api/v1/restaurants",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          restaurant: {
+            name: name,
+            hours: hours,
+            address: address,
+            rating: ratings,
+            menu: menu,
+            image: image
+          }
+        })
+      },
+      { withCredentials: true }
+    )
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        alert("added");
+      });
   };
 
   render() {
@@ -82,7 +72,6 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     fetchRestaurants: name => dispatch(fetchRestaurants(name))
-    // addRestaurant: () => dispatch(addRestaurant())
   };
 };
 export default connect(

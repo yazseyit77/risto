@@ -22,8 +22,8 @@ class Restaurants extends Component {
               <a href={rest.restaurant.url}>{rest.restaurant.name}</a>
             </Item.Header>
             <Item.Description>
+              Ratings:
               <p>
-                Ratings:{" "}
                 <span
                   style={{
                     color: "#" + rest.restaurant.user_rating.rating_color
@@ -32,8 +32,8 @@ class Restaurants extends Component {
                   {rest.restaurant.user_rating.aggregate_rating}
                 </span>
               </p>
-              <p>Open hours: {rest.restaurant.timings}</p>
-              <p>Address: {rest.restaurant.location.address}</p>
+              Open hours:<p> {rest.restaurant.timings}</p>
+              Address:<p> {rest.restaurant.location.address}</p>
             </Item.Description>
             <Item.Extra>
               <a href={rest.restaurant.menu_url}>

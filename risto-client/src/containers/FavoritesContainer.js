@@ -1,10 +1,8 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import { Button, Icon, Item, Label, Divider } from "semantic-ui-react";
+// import { Link } from "react-router-dom";
 // import { connect } from "react-redux";
 // import { fetchFavorite } from "../actions/RestaurantsActions";
-// import FavHome from "../components/FavHome";
-// import Favorites from "../components/Favorites";
 
 class FavoritesContainer extends Component {
   state = {
