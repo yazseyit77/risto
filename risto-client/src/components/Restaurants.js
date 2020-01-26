@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Icon, Image, Item, Label, Menu } from "semantic-ui-react";
+import { Button, Icon, Item, Label } from "semantic-ui-react";
 
 class Restaurants extends Component {
   render() {
@@ -29,16 +29,17 @@ class Restaurants extends Component {
               {rest.restaurant.location.address}
             </Item.Description>
             <Item.Extra>
-              <Button animated>
-                <Button.Content visible>
-                  <a href={rest.restaurant.menu_url}>Menu</a>
-                </Button.Content>
-                <Button.Content hidden>
-                  <a href={rest.restaurant.menu_url}>
+              <a href={rest.restaurant.menu_url}>
+                <Button animated>
+                  <Button.Content visible>
+                    Menu
+                  </Button.Content>
+                  <Button.Content hidden>
+
                     <Icon name="arrow right" />
-                  </a>
-                </Button.Content>
-              </Button>
+                  </Button.Content>
+                </Button>
+              </a>
               <Button as="div" labelPosition="left">
                 <Label basic pointing="right">
                   Add to favorites:

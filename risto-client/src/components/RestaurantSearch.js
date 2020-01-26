@@ -40,6 +40,7 @@ class RestaurantSearch extends Component {
                 placeholder="Search..."
                 name="name"
                 onChange={this.handleOnChange}
+                value={this.state.name}
               />
             </form>
           </Grid.Column>

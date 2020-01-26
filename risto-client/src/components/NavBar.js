@@ -38,13 +38,14 @@ export default class NavBar extends Component {
                 />
               </a>
             )}
-            <a href="/logout">
-              <Menu.Item
-                name="Logout"
-                active={activeItem === "logout"}
-                onClick={this.handleItemClick}
-              />
-            </a>
+            {this.props.loggedInStatus ? null : (
+              <a href="/">
+                <Menu.Item
+                  name="Logout"
+                  active={activeItem === "logout"}
+                  onClick={this.handleItemClick}
+                />
+              </a>)}
           </Menu.Menu>
         </Menu>
       </Segment>

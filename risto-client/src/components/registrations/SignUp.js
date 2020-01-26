@@ -4,7 +4,6 @@ import {
   Button,
   Divider,
   Form,
-  Message,
   Segment,
   Header,
   Icon
