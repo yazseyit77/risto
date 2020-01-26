@@ -21,13 +21,12 @@ class Restaurants extends Component {
               <a href={rest.restaurant.url}>{rest.restaurant.name}</a>
             </Item.Header>
             <Item.Meta>
-              <span className="cinema">
-                Open hours: {rest.restaurant.timings}
+              <span className="">
+                <p>Ratings: {rest.restaurant.user_rating.aggregate_rating}</p>
+                <p>Open hours: {rest.restaurant.timings}</p>
+                <p>Address: {rest.restaurant.location.address}</p>
               </span>
             </Item.Meta>
-            <Item.Description>
-              {rest.restaurant.location.address}
-            </Item.Description>
             <Item.Extra>
               <a href={rest.restaurant.menu_url}>
                 <Button animated>
@@ -35,7 +34,6 @@ class Restaurants extends Component {
                     Menu
                   </Button.Content>
                   <Button.Content hidden>
-
                     <Icon name="arrow right" />
                   </Button.Content>
                 </Button>

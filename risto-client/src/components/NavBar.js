@@ -12,13 +12,11 @@ export default class NavBar extends Component {
     return (
       <Segment inverted>
         <Menu inverted secondary>
-          <a href="/">
-            <Menu.Item
-              name="home"
-              active={activeItem === "home"}
-              onClick={this.handleItemClick}
-            />
-          </a>
+          <Menu.Item
+            name="home"
+            active={activeItem === "home"}
+            onClick={this.handleItemClick}
+          />
           <Menu.Menu position="right">
             {this.props.loggedInStatus ? null : (
               <a href="/signup">
