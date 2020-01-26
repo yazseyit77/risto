@@ -13,6 +13,13 @@ const NavBarRender = props => {
             onClick={props.activeItem}
           />
         </a>
+        <a href="/about">
+          <Menu.Item
+            name="About"
+            active={props.active === "about"}
+            onClick={props.activeItem}
+          />
+        </a>
         <Menu.Menu position="right">
           {props.loggedIn ? null : (
             <a href="/signup">
