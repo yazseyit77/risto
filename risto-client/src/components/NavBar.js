@@ -12,11 +12,13 @@ export default class NavBar extends Component {
     return (
       <Segment inverted>
         <Menu inverted secondary>
-          <Menu.Item
-            name="home"
-            active={activeItem === "home"}
-            onClick={this.handleItemClick}
-          />
+          <a href="/home">
+            <Menu.Item
+              name="home"
+              active={activeItem === "home"}
+              onClick={this.handleItemClick}
+            />
+          </a>
           <Menu.Menu position="right">
             {this.props.loggedInStatus ? null : (
               <a href="/signup">
@@ -36,14 +38,15 @@ export default class NavBar extends Component {
                 />
               </a>
             )}
-            {this.props.loggedInStatus ? null : (
-              <a href="/">
+            {this.props.loggedInStatus ? (
+              <a href="/home">
                 <Menu.Item
                   name="Logout"
                   active={activeItem === "logout"}
-                  onClick={this.handleItemClick}
+                  onClick={this.props.logout}
                 />
-              </a>)}
+              </a>
+            ) : null}
           </Menu.Menu>
         </Menu>
       </Segment>

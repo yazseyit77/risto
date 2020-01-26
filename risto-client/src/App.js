@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import RestaurantsContainer from "./containers/RestaurantsContainer";
-import FavHome from "./components/FavHome";
+import FavoritesContainer from "./containers/FavoritesContainer";
 import Login from "./components/registrations/Login";
 import SignUp from "./components/registrations/SignUp";
 
@@ -52,16 +52,25 @@ class App extends Component {
     return (
       <Container>
         <div className="App" style={{ backgroundColor: "#FBFAF5" }}>
-          < NavBar loggedInStatus={this.state.isLoggedIn} />
           <Router>
+            <Route
+              path="/"
+              render={props => (
+                <NavBar
+                  {...props}
+                  logout={this.handleLogout}
+                  loggedInStatus={this.state.isLoggedIn}
+                />
+              )}
+            />
             <Switch>
-              <Route exact path="/" component={RestaurantsContainer} />
+              <Route exact path="/home" component={RestaurantsContainer} />
               {this.state.isLoggedIn === true ? (
                 <Route
                   exact
                   path="/favorites"
                   render={props => (
-                    <FavHome
+                    <FavoritesContainer
                       {...props}
                       handleLogout={this.handleLogout}
                       loggedInStatus={this.state.isLoggedIn}
@@ -69,8 +78,8 @@ class App extends Component {
                   )}
                 />
               ) : (
-                  <Route exact path="/" component={RestaurantsContainer} />
-                )}
+                <Route exact path="/home" component={RestaurantsContainer} />
+              )}
               <Route
                 exact
                 path="/login"
@@ -96,7 +105,7 @@ class App extends Component {
             </Switch>
           </Router>
         </div>
-      </Container >
+      </Container>
     );
   }
 }

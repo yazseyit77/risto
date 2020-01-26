@@ -61,12 +61,12 @@ class SignUp extends Component {
       .catch(error => console.log("api errors:", error));
   };
 
-  //   componentWillMount() {
-  //     return this.props.loggedInStatus ? this.redirect() : null;
-  //   }
+  componentWillMount() {
+    return this.props.loggedInStatus ? this.redirect() : null;
+  }
 
   redirect = () => {
-    this.props.history.push("/home");
+    this.props.history.push("/favorites");
   };
 
   handleErrors = () => {
