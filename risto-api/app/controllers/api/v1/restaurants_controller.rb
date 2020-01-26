@@ -1,5 +1,6 @@
 class Api::V1::RestaurantsController < ActionController::Base
   before_action :set_restaurant, only: [:show, :update, :destroy]
+  skip_before_action :verify_authenticity_token
 
   # GET /restaurants
   def index
@@ -31,15 +32,15 @@ class Api::V1::RestaurantsController < ActionController::Base
   end
 
   # POST /restaurants
-  # def create
-  #   @restaurant = Restaurant.new(restaurant_params)
+  def create
+    @restaurant = Restaurant.new(restaurant_params)
 
-  #   if @restaurant.save
-  #     render json: @restaurant, status: :created, location: @restaurant
-  #   else
-  #     render json: @restaurant.errors, status: :unprocessable_entity
-  #   end
-  # end
+    if @restaurant.save
+      render json: @restaurant, status: :created, location: nil
+    else
+      render json: @restaurant.errors, status: :unprocessable_entity
+    end
+  end
 
   # PATCH/PUT /restaurants/1
   # def update
