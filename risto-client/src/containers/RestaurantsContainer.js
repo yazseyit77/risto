@@ -12,7 +12,7 @@ class RestaurantsContainer extends Component {
 
   handleOnClick = e => {
     e.preventDefault();
-    const image = document.querySelector("div.avatar").children[0].src;
+    const images = document.querySelector("div.avatar").children[0].src;
     const name = document.querySelector("div.content").children[1].innerText;
     const hours = document.querySelector("div.content").children[2].children[1]
       .innerText;
@@ -36,7 +36,7 @@ class RestaurantsContainer extends Component {
             address: address,
             rating: ratings,
             menu: menu,
-            image: image
+            images: images
           }
         })
       },

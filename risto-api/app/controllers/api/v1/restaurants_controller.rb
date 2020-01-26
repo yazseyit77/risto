@@ -33,6 +33,7 @@ class Api::V1::RestaurantsController < ActionController::Base
 
   # POST /restaurants
   def create
+    byebug
     @restaurant = Restaurant.new(restaurant_params)
 
     if @restaurant.save
@@ -64,6 +65,6 @@ class Api::V1::RestaurantsController < ActionController::Base
 
     # Only allow a trusted parameter "white list" through.
     def restaurant_params
-      params.require(:restaurant).permit(:name, :address, :hours, :images)
+      params.require(:restaurant).permit(:name, :address, :hours, :images, :rating, :menu)
     end
 end
