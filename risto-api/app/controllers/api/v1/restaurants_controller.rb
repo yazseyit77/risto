@@ -4,7 +4,7 @@ class Api::V1::RestaurantsController < ActionController::Base
 
   # GET /restaurants
   def index
-    @restaurants = Restaurant.all
+    @restaurants = Restaurant.order(:id)
     render json: @restaurants.to_json(:except => [:created_at, :updated_at]), status: 200
   end
 
@@ -33,7 +33,7 @@ class Api::V1::RestaurantsController < ActionController::Base
 
   # POST /restaurants
   def create
-    byebug
+    # byebug
     @restaurant = Restaurant.new(restaurant_params)
 
     if @restaurant.save

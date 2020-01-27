@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Icon, Item, Label, Divider } from "semantic-ui-react";
+import { Button, Icon, Item, Divider } from "semantic-ui-react";
 // import { Link } from "react-router-dom";
 // import { connect } from "react-redux";
 // import { fetchFavorite } from "../actions/RestaurantsActions";
@@ -45,7 +45,7 @@ class FavoritesContainer extends Component {
                       color: "green"
                     }}
                   >
-                    {" " + fav.ratings}
+                    {" " + fav.rating}
                   </span>
                 </p>
                 <p>Open hours: {fav.hours}</p>
@@ -60,14 +60,6 @@ class FavoritesContainer extends Component {
                     </Button.Content>
                   </Button>
                 </a>
-                <Button as="div" labelPosition="left">
-                  <Label basic pointing="right">
-                    Add to favorites:
-                  </Label>
-                  <Button as="a" icon>
-                    <Icon color="red" name="heart" size="large" />
-                  </Button>
-                </Button>
               </Item.Extra>
             </Item.Content>
           </Item>
