@@ -53,6 +53,8 @@ class RestaurantsContainer extends Component {
     return (
       <div className="App">
         <RestaurantSearch fetchRestaurants={this.props.fetchRestaurants} />
+        <br />
+        <br />
         <Restaurants
           restaurants={this.props.restaurants}
           handleOnClick={this.handleOnClick}

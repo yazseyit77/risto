@@ -64,30 +64,34 @@ const panes = [
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFrkALap57QPVsBdBslBLyrZzfyNFSCBawt8eTI_GP6XaO17llWw&s"
         />
         <br />
-        <List style={{ fontSize: "25px" }}>
-          <List.Item icon="users" content="Yazgeldi Seyidov" />
-          <List.Item icon="marker" content="San Diego, CA" />
-          <List.Item
-            icon="mail"
-            content={
-              <a href="mailto:blablabla@gmail.com">
-                yazgeldi.seyidov@gmail.com
-              </a>
-            }
-          />
-          <List.Item
-            icon="linkedin"
-            content={
-              <a href="https://www.linkedin.com/in/yazgeldi-seyidov-83b855158/">
-                LinkedIn
-              </a>
-            }
-          />
-          <List.Item
-            icon="github"
-            content={<a href="https://github.com/yazseyit77">GitHub</a>}
-          />
-        </List>
+        <br />
+        <Container text>
+          <List style={{ fontSize: "25px" }}>
+            <List.Item icon="users" content="Yazgeldi Seyidov" />
+            <List.Item icon="marker" content="San Diego, CA" />
+            <List.Item
+              icon="mail"
+              content={
+                <a href="mailto:blablabla@gmail.com">
+                  yazgeldi.seyidov@gmail.com
+                </a>
+              }
+            />
+            <List.Item
+              icon="linkedin"
+              content={
+                <a href="https://www.linkedin.com/in/yazgeldi-seyidov-83b855158/">
+                  LinkedIn
+                </a>
+              }
+            />
+            <List.Item
+              icon="github"
+              content={<a href="https://github.com/yazseyit77">GitHub</a>}
+            />
+          </List>
+          <br />
+        </Container>
       </Tab.Pane>
     )
   }

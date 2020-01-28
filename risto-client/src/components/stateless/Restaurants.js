@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import { Button, Icon, Item, Label } from "semantic-ui-react";
-import uuid from "uuid";
 
 class Restaurants extends Component {
   render() {
     // console.log(this.props.restaurants);
     const restaurants = this.props.restaurants.map(rest => (
-      <Item.Group divided key={rest.restaurant.id} id={uuid}>
+      <Item.Group divided key={rest.restaurant.id}>
         <Item>
           <Item.Image
             avatar
@@ -17,11 +16,10 @@ class Restaurants extends Component {
             }
           />
           <Item.Content>
-            <br />
-            <Item.Header as="a">
+            <Item.Header as="a" style={{ fontSize: "15px" }}>
               <a href={rest.restaurant.url}>{rest.restaurant.name}</a>
             </Item.Header>
-            <Item.Description>
+            <Item.Description style={{ fontSize: "11px" }}>
               Ratings:
               <p>
                 <span
@@ -60,7 +58,7 @@ class Restaurants extends Component {
     return (
       <div>
         <div className="card">
-          <p id={uuid}>{restaurants}</p>
+          <p>{restaurants}</p>
           {/* <ol>{restaurants}</ol> */}
         </div>
       </div>
