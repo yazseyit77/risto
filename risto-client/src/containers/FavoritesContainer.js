@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Button, Icon, Item, Divider } from "semantic-ui-react";
 // import { Link } from "react-router-dom";
-// import { connect } from "react-redux";
-// import { fetchFavorite } from "../actions/RestaurantsActions";
+import { connect } from "react-redux";
+import { fetchFavorites } from "../actions/RestaurantsActions";
 
 class FavoritesContainer extends Component {
   state = {
@@ -10,20 +10,20 @@ class FavoritesContainer extends Component {
   };
 
   componentDidMount() {
-    fetch("http://localhost:4000/api/v1/restaurants") //fetch database
-      .then(res => res.json())
-      .then(data => {
-        this.setState({
-          favorites: data
-        });
-      });
+    // fetch("http://localhost:4000/api/v1/restaurants") //fetch database
+    //   .then(res => res.json())
+    //   .then(data => {
+    //     this.setState({
+    //       favorites: data
+    //     });
+    //   });
     // debugger
     // console.log(this.props.fetchFavorite());
-    // this.props.fetchFavorite();
+    this.props.fetchFavorites();
   }
 
   render() {
-    const favorites = this.state.favorites.map(fav => (
+    const favorites = this.props.favorites.map(fav => (
       <div>
         <Item.Group divided>
           <Item>
@@ -80,20 +80,17 @@ class FavoritesContainer extends Component {
   }
 }
 
-// const mapStateToProps = state => {
-//     // debugger
-//     return {
-//         favorites: state.favorites
-//     };
-// };
+const mapStateToProps = state => {
+  // debugger
+  return {
+    favorites: state.favorites
+  };
+};
 
-// const mapDispatchToProps = dispatch => {
-//     return {
-//         fetchFavorite: favorites => dispatch(fetchFavorite(favorites))
-//     };
-// };
-// export default connect(
-//     mapStateToProps,
-//     mapDispatchToProps
-// )(FavoritesContainer);
-export default FavoritesContainer;
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchFavorites: () => dispatch(fetchFavorites())
+  };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(FavoritesContainer);
+// export default FavoritesContainer;

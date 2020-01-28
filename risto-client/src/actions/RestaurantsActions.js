@@ -11,3 +11,13 @@ export const fetchRestaurants = name => {
       });
   };
 };
+
+export const fetchFavorites = () => {
+  return dispatch => {
+    fetch("http://localhost:4000/api/v1/restaurants") //fetch database
+      .then(res => res.json())
+      .then(data => {
+        dispatch({ type: "SET_FAVORITES", payload: data });
+      });
+  };
+};

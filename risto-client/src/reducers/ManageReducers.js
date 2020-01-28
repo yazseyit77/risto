@@ -1,6 +1,9 @@
 import { combineReducers } from "redux";
 
-const restReducer = (state = { restaurants: [], loading: false }, action) => {
+const restReducer = (
+  state = { restaurants: [], loading: false, favorites: [] },
+  action
+) => {
   switch (action.type) {
     case "LOADING_RESTAURANTS":
       return {
@@ -16,6 +19,11 @@ const restReducer = (state = { restaurants: [], loading: false }, action) => {
         loading: false
       };
 
+    case "SET_FAVORITES":
+      return {
+        ...state,
+        favorites: [...action.payload]
+      };
     default:
       return state;
   }
