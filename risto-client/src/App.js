@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Container } from "semantic-ui-react";
 import RestaurantsContainer from "./containers/RestaurantsContainer";
 import FavoritesContainer from "./containers/FavoritesContainer";
 import Login from "./components/registrations/Login";
 import SignUp from "./components/registrations/SignUp";
 import About from "../src/components/stateless/About";
 import NavBar from "./components/NavBar";
-import { Container } from "semantic-ui-react";
 
 class App extends Component {
   constructor(props) {

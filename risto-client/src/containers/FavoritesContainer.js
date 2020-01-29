@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Button, Icon, Item, Divider } from "semantic-ui-react";
-// import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { fetchFavorites } from "../actions/RestaurantsActions";
 
@@ -81,7 +80,6 @@ class FavoritesContainer extends Component {
 }
 
 const mapStateToProps = state => {
-  // debugger
   return {
     favorites: state.favorites
   };

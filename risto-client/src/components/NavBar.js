@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import { Menu, Segment } from "semantic-ui-react";
 import NavBarRender from "./stateless/NavBarRender";
 
 export default class NavBar extends Component {
@@ -19,48 +18,5 @@ export default class NavBar extends Component {
         />
       </div>
     );
-
-    // return (
-    //   <Segment inverted>
-    //     <Menu inverted secondary>
-    //       <a href="/home">
-    //         <Menu.Item
-    //           name="home"
-    //           active={activeItem === "home"}
-    //           onClick={this.handleItemClick}
-    //         />
-    //       </a>
-    //       <Menu.Menu position="right">
-    //         {this.props.loggedInStatus ? null : (
-    //           <a href="/signup">
-    //             <Menu.Item
-    //               name="Sign up"
-    //               active={activeItem === "logout"}
-    //               onClick={this.handleItemClick}
-    //             />
-    //           </a>
-    //         )}
-    //         {this.props.loggedInStatus ? null : (
-    //           <a href="/login">
-    //             <Menu.Item
-    //               name="Login"
-    //               active={activeItem === "logout"}
-    //               onClick={this.handleItemClick}
-    //             />
-    //           </a>
-    //         )}
-    //         {this.props.loggedInStatus ? (
-    //           <a href="/home">
-    //             <Menu.Item
-    //               name="Logout"
-    //               active={activeItem === "logout"}
-    //               onClick={this.props.logout}
-    //             />
-    //           </a>
-    //         ) : null}
-    //       </Menu.Menu>
-    //     </Menu>
-    //   </Segment>
-    // );
   }
 }

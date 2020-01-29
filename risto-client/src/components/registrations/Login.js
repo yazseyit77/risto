@@ -1,13 +1,4 @@
 import React, { Component } from "react";
-// import { Link } from "react-router-dom";
-// import {
-//   Button,
-//   Divider,
-//   Form,
-//   Segment,
-//   Header,
-//   Icon
-// } from "semantic-ui-react";
 
 import LoginRender from "../stateless/LoginRender";
 
@@ -98,47 +89,6 @@ class Login extends Component {
         />
       </div>
     );
-
-    // return (
-    //   <Segment placeholder>
-    //     <Header as="h1" icon textAlign="center">
-    //       <Icon name="user" circular />
-    //       <Header.Content>Login</Header.Content>
-    //     </Header>
-    //     <br />
-    //     <br />
-    //     <Form onSubmit={this.handleSubmit}>
-    //       <Form.Input
-    //         icon="user"
-    //         iconPosition="left"
-    //         label="Username"
-    //         placeholder="Username"
-    //         type="text"
-    //         name="username"
-    //         value={username}
-    //         onChange={this.handleChange}
-    //       />
-    //       <Form.Input
-    //         icon="lock"
-    //         iconPosition="left"
-    //         label="Password"
-    //         placeholder="Password"
-    //         type="password"
-    //         name="password"
-    //         value={password}
-    //         onChange={this.handleChange}
-    //       />
-    //       <Button content="Login" primary />
-    //     </Form>
-    //     <br />
-    //     <br />
-    //     <Divider horizontal>Or</Divider>
-    //     <Link to="/signup">
-    //       <Button content="Sign up" icon="signup" size="big" />
-    //     </Link>
-    //     <div>{this.state.errors ? this.handleErrors() : null}</div>
-    //   </Segment>
-    // );
   }
 }
 

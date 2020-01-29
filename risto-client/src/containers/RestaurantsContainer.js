@@ -6,22 +6,10 @@ import RestaurantSearch from "../components/RestaurantSearch";
 
 class RestaurantsContainer extends Component {
   componentDidMount() {
-    // console.log(this.props);
     this.props.fetchRestaurants();
   }
 
-  handleOnClick = e => {
-    e.preventDefault();
-    const images = document.querySelector("div.avatar").children[0].src;
-    const name = document.querySelector("div.content").children[1].innerText;
-    const hours = document.querySelector("div.content").children[2].children[1]
-      .innerText;
-    const address = document.querySelector("div.content").children[2]
-      .children[2].innerText;
-    const ratings = document.querySelector("div.content").children[2]
-      .children[0].innerText;
-    const menu = document.querySelector("div.extra").querySelector("a").href;
-
+  handleOnClick = rest => {
     fetch(
       "http://localhost:4000/api/v1/restaurants",
       {
@@ -31,12 +19,12 @@ class RestaurantsContainer extends Component {
         },
         body: JSON.stringify({
           restaurant: {
-            name: name,
-            hours: hours,
-            address: address,
-            rating: ratings,
-            menu: menu,
-            images: images
+            name: rest.restaurant.name,
+            hours: rest.restaurant.timings,
+            address: rest.restaurant.location.address,
+            rating: rest.restaurant.user_rating.aggregate_rating,
+            menu: rest.restaurant.menu_url,
+            images: rest.restaurant.thumb
           }
         })
       },
@@ -65,7 +53,6 @@ class RestaurantsContainer extends Component {
 }
 
 const mapStateToProps = state => {
-  // debugger;
   return {
     restaurants: state.restaurants,
     loading: state.loading

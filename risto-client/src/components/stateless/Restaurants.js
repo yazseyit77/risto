@@ -3,7 +3,6 @@ import { Button, Icon, Item, Label } from "semantic-ui-react";
 
 class Restaurants extends Component {
   render() {
-    // console.log(this.props.restaurants);
     const restaurants = this.props.restaurants.map(rest => (
       <Item.Group divided key={rest.restaurant.id}>
         <Item>
@@ -46,7 +45,11 @@ class Restaurants extends Component {
                 <Label basic pointing="right">
                   Add to favorites:
                 </Label>
-                <Button as="a" icon onClick={this.props.handleOnClick}>
+                <Button
+                  as="a"
+                  icon
+                  onClick={() => this.props.handleOnClick(rest)}
+                >
                   <Icon color="red" name="heart" size="large" />
                 </Button>
               </Button>
@@ -59,7 +62,6 @@ class Restaurants extends Component {
       <div>
         <div className="card">
           <p>{restaurants}</p>
-          {/* <ol>{restaurants}</ol> */}
         </div>
       </div>
     );
