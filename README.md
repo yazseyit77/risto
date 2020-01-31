@@ -2,7 +2,7 @@
 
 Restaurant finder application React, Redux and Rails Project
 
-Demo - https://www.youtube.com/watch?v=e88Qy8yO4UE
+[Demo](https://www.youtube.com/watch?v=e88Qy8yO4UE)
 
 To run the app:
 
